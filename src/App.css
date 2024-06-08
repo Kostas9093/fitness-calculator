@@ -1,0 +1,86 @@
+/* src/App.css */
+body{
+margin:0;
+padding:0;
+border:none;
+/* background-image: url('./image/healthy.webp'); */
+
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  height:100%;
+  margin-left:0px;
+}
+
+input{
+  height:16px;
+  width:250px;
+}
+
+label {
+  margin: 5px; 
+  width:240px;
+  display:inline-block;
+}
+
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h1{
+  margin-left:10px;
+}
+h2{
+  margin-left:30px;
+  color:rgb(0, 81, 255);
+  /* background-color: #04192f41; */
+}
+.new{
+  color:rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  margin-left:410px;
+  margin-top:-660px;
+  padding:0px 10px;
+  
+}
+
+div, form {
+  border:3px solid black;
+  width:720px;
+  background-color:rgb(223, 205, 245);
+  /* background-image: url('./image/hand-drawn-world-health-day-background_23-2149306515.avif'); */
+
+  
+}
+h4{
+font-weight:bold;
+color:rgb(255, 9, 9);
+}
+/* h4, p , h3, h2, label{
+background-color: rgba(15, 13, 13, 0.5);
+backdrop-filter: blur(2px);
+} */
+/* label{
+  color:rgb(0, 0, 0);
+} */
