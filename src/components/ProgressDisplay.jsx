@@ -24,8 +24,8 @@ const ProgressDisplay = ({ progress }) => {
       <p>Your weight has Change by: {weightDiff} kg<br/><br/> Your fat Mass Change by: {fatDiff} % <br/><br/>Your muscle Mass Change by: {muscleDiff} %<br/><br/>Your Water has Change by: {waterDiff} %<br/><br/></p>
       {/* <h3>Your fat Mass in Kilograms</h3>
       <p>Previous fat Mass: {oldFatKilos} kg<br/><br/>Current fat Mass: {newFatKilos} kg</p> */}<h3>
-      {muscleKilosDiff > 0 ?  `Carefull... :` : ` Congratulations!!!!`}</h3>
-      <h4>{muscleKilosDiff > 0 ? ` You gained ${fatKilosDiff} kg of fat` : ` You lost ${Math.abs(fatKilosDiff)} kg of fat`}</h4>
+      {muscleKilosDiff > 0 ?  `Congratulations!!!!` : `Carefull... : `}</h3>
+      <h4>{muscleKilosDiff > 0 ? ` You lost ${fatKilosDiff} kg of fat` : `You gained  ${Math.abs(fatKilosDiff)} kg of fat`}</h4>
       {/* <h3>Muscle mass in Kilograms</h3> */}
       {/* <p>Previous muscle Mass: {oldMuscleKilos} kg<br/><br/>Current muscle Mass: {newMuscleKilos} kg</p> */}
       <h3>{muscleKilosDiff > 0 ? ` Congratulations!!!!` : `Carefull... :`}</h3>
