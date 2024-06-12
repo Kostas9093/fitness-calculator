@@ -18,14 +18,13 @@ body{
 margin:0;
 padding:0;
 border:none;
-/* background-image: url('./image/healthy.webp'); */
 }
 
 form {
   display: flex;
   border:none;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 500px;
   height:100%;
   margin-left:0px;
   text-align: center;
@@ -44,7 +43,6 @@ label {
   justify-content: center;
   align-self: center;
 }
-
 
 button {
   margin-top: 20px;
@@ -65,35 +63,31 @@ h1{
   margin-left:10px;
 }
 h2{
-  margin-left:30px;
+  text-align: center;
   color:rgb(237, 245, 255);
 }
-.new{
+ .new {
   color:rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
-  height:620px;
+  height:485px;
   max-width: 280px;
-  margin-left:400px;
-  margin-top:-620px;
-  padding:0px 10px;
+  margin-left:600px;
+  margin-top:-474px;
+  padding:0px 0px;
   justify-content: center;
   align-self: center;
   text-align: center; 
-  border-radius: 50%; 
+  border-radius: 20%; 
 }
 
 div, form {
   justify-content: center;
-  /* border:3px solid black; */
   width:720px;
   background-color:rgb(136, 199, 251);
-
-  /* background-image: url('./image/hand-drawn-world-health-day-background_23-2149306515.avif'); */
   border-radius: 10%;
-
-  
 }
+
 h4{
 font-weight:bold;
 color:rgb(255, 9, 9);
@@ -105,10 +99,3 @@ h3, h1{
 h1{
   color:rgb(238, 241, 245);
 }
-/* h4, p , h3, h2, label{
-background-color: rgba(15, 13, 13, 0.5);
-backdrop-filter: blur(2px);
-} */
-/* label{
-  color:rgb(0, 0, 0);
-} */
