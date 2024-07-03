@@ -11,7 +11,7 @@
 .App {
   font-family: Arial, sans-serif;
   font-size: 16px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 body{
@@ -27,41 +27,40 @@ form {
   max-width: 500px;
   height:100%;
   margin-left:0px;
-  text-align: center;
+  text-align: start;
   border-radius: 50%;
 }
 
 input{
   height:16px;
   width:250px;
+  
 }
 
 label {
   margin: 5px; 
   width:200px;
   display:inline-block;
-  justify-content: center;
-  align-self: center;
+  justify-content: start;
+  align-self: start;
 }
 
 button {
-  margin-top: 20px;
-  margin-left:80%;
+  margin-top: 10%;
+  margin-left:60%;
+  margin-right:20%;
   padding: 10px;
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 10%;
+  /* border-radius: 10%; */
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-h1{
-  margin-left:10px;
-}
 h2{
   text-align: center;
   color:rgb(237, 245, 255);
@@ -71,31 +70,33 @@ h2{
   display: flex;
   flex-direction: column;
   height:485px;
-  max-width: 280px;
+  max-width: 250px;
   margin-left:600px;
   margin-top:-474px;
   padding:0px 0px;
   justify-content: center;
   align-self: center;
   text-align: center; 
-  border-radius: 20%; 
 }
 
-div, form {
-  justify-content: center;
-  width:720px;
+form {
+  justify-content: start;
   background-color:rgb(136, 199, 251);
-  border-radius: 10%;
 }
 
-h4{
-font-weight:bold;
-color:rgb(255, 9, 9);
+div{
+  width:900px;
+  background-color:rgb(136, 199, 251);
 }
-h3, h1{
-  text-align: center;
-  
-}
+
 h1{
+  text-align: center;
   color:rgb(238, 241, 245);
+  margin-left:10px;
+}
+li{
+  justify-content: center;
+  align-self: center;
+  text-align: center; 
+  list-style-type:none;
 }

@@ -15,7 +15,7 @@ const ProgressDisplay = ({ progress }) => {
   return (
     <div className="new">
       <h2>Progress Results</h2>
-      <p>Weight Change: {weightDiff  >= 0 ? `You gained ${weightDiff} kg` : `You lost ${Math.abs(weightDiff).toFixed(2)} kg`}</p>
+      <p>Weight Change: {weightDiff >= 0 ? `You gained ${weightDiff} kg` : `You lost ${Math.abs(weightDiff).toFixed(2)} kg`}</p>
       <p>Fat Mass Change: {fatDiff >= 0 ? `You gained ${fatDiff} %` : `You lost ${Math.abs(fatDiff).toFixed(2)} %`} </p>
       <p>Muscle Mass Change: {muscleDiff >= 0 ? `You gained ${muscleDiff} %` : `You lost ${Math.abs(muscleDiff).toFixed(2)} %`} </p>
       <p>Fat Kilos Change: {fatKilosDiff >= 0 ? `You gained ${fatKilosDiff} kg` : `You lost ${Math.abs(fatKilosDiff).toFixed(2)} kg`} </p>
@@ -41,11 +41,17 @@ const MeasurementForm = () => {
   });
 
   const [progress, setProgress] = useState(null);
+  const [measurementHistory, setMeasurementHistory] = useState([]);
 
   useEffect(() => {
     const savedOldMeasurements = JSON.parse(localStorage.getItem('oldMeasurements'));
     if (savedOldMeasurements) {
       setOldMeasurements(savedOldMeasurements);
+    }
+
+    const savedMeasurementHistory = JSON.parse(localStorage.getItem('measurementHistory'));
+    if (savedMeasurementHistory) {
+      setMeasurementHistory(savedMeasurementHistory);
     }
   }, []);
 
@@ -83,12 +89,22 @@ const MeasurementForm = () => {
 
     setProgress(progress);
 
+    // Update the measurement history
+    const newHistoryEntry = {
+      date: new Date().toISOString(),
+      measurements: newMeasurements
+    };
+
+    const updatedHistory = [...measurementHistory, newHistoryEntry];
+    setMeasurementHistory(updatedHistory);
+    localStorage.setItem('measurementHistory', JSON.stringify(updatedHistory));
+
+    // Update the old measurements to the new ones
     localStorage.setItem('oldMeasurements', JSON.stringify(newMeasurements));
   };
 
   return (
     <div>
-     
       <form onSubmit={handleSubmit}>
         <h2>Old Measurements</h2>
         <div>
@@ -177,8 +193,17 @@ const MeasurementForm = () => {
       </form>
 
       <ProgressDisplay progress={progress} />
+
+      <h2>Measurement History</h2>
+      <ul>
+        {measurementHistory.map((entry, index) => (
+          <li key={index}>
+            {entry.date}: Weight: {entry.measurements.weight}kg, Fat: {entry.measurements.fat}%, Muscle: {entry.measurements.muscle}%, Water: {entry.measurements.water}%
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default  MeasurementForm ;
+export default MeasurementForm;
