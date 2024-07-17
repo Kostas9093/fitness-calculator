@@ -4,14 +4,13 @@
   align-content: center;
   margin: 0px 25%;
   border-radius: 50%;
-  background: rgb(165,94,223);
-  background: radial-gradient(circle, rgba(165,94,223,1) 39%, rgba(131,58,180,1) 55%, rgba(69,174,252,1) 60%, rgba(91,91,91,0.9023984593837535) 90%);
+  background-image: url(/image.jpg);
+  background-size: 100vw 100vh;
 }
 
 .App {
   font-family: Arial, sans-serif;
   font-size: 16px;
-  /* border-radius: 50%; */
 }
 
 body{
