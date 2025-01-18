@@ -16,11 +16,9 @@ const ProgressDisplay = ({ progress }) => {
     <div className="new">
       <h2>Progress Results</h2>
       <p>Weight Change: {weightDiff >= 0 ? `You gained ${weightDiff} kg` : `You lost ${Math.abs(weightDiff).toFixed(2)} kg`}</p>
-      <p>Fat Mass Change: {fatDiff >= 0 ? `You gained ${fatDiff} %` : `You lost ${Math.abs(fatDiff).toFixed(2)} %`} </p>
-      <p>Muscle Mass Change: {muscleDiff >= 0 ? `You gained ${muscleDiff} %` : `You lost ${Math.abs(muscleDiff).toFixed(2)} %`} </p>
-      <p>Fat Kilos Change: {fatKilosDiff >= 0 ? `You gained ${fatKilosDiff} kg` : `You lost ${Math.abs(fatKilosDiff).toFixed(2)} kg`} </p>
-      <p>Muscle Kilos Change: {musleKilosDiff >= 0 ? `You gained ${musleKilosDiff} kg` : `You lost ${Math.abs(musleKilosDiff).toFixed(2)} kg`}</p>
-      <p>Water Change: {waterDiff} %</p>
+      <p>Fat Mass Change: {fatDiff >= 0 ? `You gained ${fatDiff} % which is ${fatKilosDiff} in kg` : `You lost ${Math.abs(fatDiff).toFixed(2)} % witch is ${Math.abs(fatKilosDiff).toFixed(2)} in kg`} </p>
+      <p>Muscle Mass Change: {muscleDiff >= 0 ? `You gained ${muscleDiff} % which is ${musleKilosDiff} in kg` : `You lost ${Math.abs(muscleDiff).toFixed(2)} % which is ${Math.abs(musleKilosDiff).toFixed(2)} in kg`} </p>
+      <p>Water Change: {waterDiff >=0 ? ` ${waterDiff}%` : `${waterDiff}%`} </p>
     </div>
   );
 };
@@ -101,6 +99,15 @@ const MeasurementForm = () => {
 
     // Update the old measurements to the new ones
     localStorage.setItem('oldMeasurements', JSON.stringify(newMeasurements));
+  };
+
+     // Function to handle clearing the last entry from history
+  const handleClearHistory = () => {
+    if (measurementHistory.length > 0) {
+      const updatedHistory = measurementHistory.slice(0, -1); // Remove the last entry
+      setMeasurementHistory(updatedHistory);
+      localStorage.setItem('measurementHistory', JSON.stringify(updatedHistory));
+    }
   };
 
   return (
@@ -194,7 +201,7 @@ const MeasurementForm = () => {
 
       <ProgressDisplay progress={progress} />
 
-      <h2>Measurement History</h2>
+      <h2 id="history">Measurement History</h2>
       <ul>
         {measurementHistory.map((entry, index) => (
           <li key={index}>
@@ -202,6 +209,8 @@ const MeasurementForm = () => {
           </li>
         ))}
       </ul>
+      <button id="clearhistory" onClick={handleClearHistory}>Clear Last Entry</button>
+
     </div>
   );
 };
